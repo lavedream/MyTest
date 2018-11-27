@@ -10,6 +10,8 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.flyjaky.HAHAProxy.request.RequestHeader;
+import org.flyjaky.HAHAProxy.request.modal.SimpleHAHARequestModal;
 import org.flyjaky.HAHAProxy.util.IOUtil;
 
 public class TcpRequestClient {
@@ -18,6 +20,12 @@ public class TcpRequestClient {
 
 		try {
 
+			
+			SimpleHAHARequestModal simpleRequest=new SimpleHAHARequestModal();
+			RequestHeader requestHeader=new RequestHeader();
+			requestHeader.setMagic("".getBytes());
+			
+			
 			Socket clientSocket = new Socket(host, port);
 
 			clientSocket.setTcpNoDelay(true);
