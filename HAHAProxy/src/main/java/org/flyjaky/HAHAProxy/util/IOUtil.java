@@ -57,7 +57,11 @@ public class IOUtil {
 			}
 			
 		}
-		return readByteAll.array();
+		if(null != readByteAll ) {
+			return readByteAll.array();
+		}else {
+			return new byte[0];
+		}
 	}
 	
 	
